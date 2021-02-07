@@ -4,6 +4,7 @@
 PHP Model class for simplifying common MySQL actions.
 Intended to be extended for various tables - Users.php as example
 Automatically connects with PDO object using persistent connection for re-use, eliminating the need for a DB connection step.
+
 --------------------
 
 **Set database credentials in the code line 16 - line 20**
@@ -93,10 +94,12 @@ Set the grouping of the SQL query.
 
 ### Set Joins.
 To set a joined table or multiple, there are 2 steps; defining the table and fields to join and then defining the join condition.
+
 ---------------------
 Set the join table, fields and type of join using the `set_join_table` method. Default is a LEFT JOIN.
 
 `$model->set_join_table('roles', ['role_id', 'role_name']);`
+
 ---------------------
 Set the join condition, aka how it will be joined to the left table. The same table must be specified.
 Then the left table value and the right table value.
