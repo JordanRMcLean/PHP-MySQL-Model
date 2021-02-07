@@ -1,5 +1,6 @@
 # MySQL Model Class
 
+
 PHP Model class for simplifying common MySQL actions.
 Intended to be extended for various tables - Users.php as example
 Automatically connects with PDO object using persistent connection for re-use, eliminating the need for a DB connection step.
@@ -45,22 +46,27 @@ Set which fields to retrieve from the table using the set_fields method.
 You can set several WHERE clauses for the SQL query.
 
 The simplest method is using `set_where` and providing a field and a value, which creates `WHERE field = value`
+
 -------------------------
 Multiple WHERE clauses are joined with 'AND' unless specified as an 'OR' WHERE using `set_or_where` :
 
 `$model->set_or_where('inactive', 1);`
+
 -------------------------
 The operator assumed between field and value is '=' however an operator can be specified as a third parameter:
 
 `$model->set_where('posts', 5, '>');` SQL: `AND posts > 5`
+
 ------------------------
 You can use the IN() function of SQL, with `set_in_where` method.
 
 `$model->set_in_where('id', ['2','3','4']);` SQL: `AND id IN(2, 3, 4)`
+
 -----------------------
 You can use a shortcut function `set_search` to set a common where clause in SQL.
 
 `$model->set_search('name', 'jordan');` SQL: `AND name LIKE '%jordan%'`
+
 ----------------------
 You have complete freedom with a custom where clause using the `set_custom_where` method.
 If there is no AND or OR specified at the start of the provided WHERE clause then AND will be prepended.
